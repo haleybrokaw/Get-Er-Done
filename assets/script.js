@@ -47,17 +47,18 @@ function renderCalendar(date) {
         const dayElement = document.createElement("div");
         dayElement.className = "day";
         dayElement.textContent = day;
-        console.log(day);
 
         // Highlight the present day
         if (date.date() === day && date.month() === currentDate.month() && date.year() === currentDate.year()) {
             dayElement.classList.add("present-day");
         }
 
+        // Color past days grey
         if (day < currentDate.date()) {
             dayElement.classList.add("past-day");
         }
 
+        // Color future days green
         if (day > currentDate.date()) {
             dayElement.classList.add("future-day");
         }
