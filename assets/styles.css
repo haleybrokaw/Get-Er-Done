@@ -53,6 +53,16 @@ button:hover {
     border: 1px solid #ff0000; /* Add a border for emphasis */
 }
 
+.past-day {
+    background-color: #A2A2A2; /* Change to your preferred highlight color */
+    border: 1px solid #000000; /* Add a border for emphasis */
+}
+
+.future-day {
+    background-color: #56E9A0; /* Change to your preferred highlight color */
+    border: 1px solid #00753A; /* Add a border for emphasis */
+}
+
 /* Style the schedule container */
 .schedule-container {
     position: flex;
