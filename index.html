@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-    <div class="calendar">
-        <div class="header">
-            <button id="prevMonth">Previous Month</button>
-            <h1 id="currentMonth">Month Year</h1>
-            <button id="nextMonth">Next Month</button>
+    <div class="calendar-container">
+        <div class="calendar">
+            <div class="header">
+                <button id="prevMonth">Previous Month</button>
+                <h1 id="currentMonth">Month Year</h1>
+                <button id="nextMonth">Next Month</button>
+            </div>
+            <div class="days"></div>
         </div>
-        <div class="days"></div>
-    </div>
+         <div class="schedule-container">
+            <!-- Schedule content goes here -->
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>

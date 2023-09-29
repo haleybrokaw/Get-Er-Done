@@ -2,13 +2,30 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Style for the calendar container */
+/* Style for the calendar container */
+.calendar-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Style for the calendar (right side, 3/4 width) */
 .calendar {
-    max-width: 100vh;
-    max-height: fit-content;
-    margin: 0 auto;
+    flex: 3;
+    background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 5px #ccc;
     padding: 10px;
+}
+
+/* Style for the schedule container (left side, 1/4 width) */
+.schedule-container {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* Add more styles as desired */
+    display: none; /* Initially hide the schedule container */
 }
 
 .header {
@@ -63,15 +80,4 @@ button:hover {
     border: 1px solid #00753A; /* Add a border for emphasis */
 }
 
-/* Style the schedule container */
-.schedule-container {
-    position: flex;
-    top: 0;
-    right: 0;
-    width: 300px; /* Adjust the width and other styles as needed */
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1000; /* Ensure it's above other elements */
-    /* Add more styles as desired */
-}
+
