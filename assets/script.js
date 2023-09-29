@@ -65,7 +65,9 @@ function renderCalendar(date) {
 
         // Add click event listener to show the schedule
         dayElement.addEventListener("click", () => {
-            displaySchedule(day);
+            // Get the full date in YYYY-MM-DD format
+            const selectedDate = currentDate.format("YYYY-MM-") + day;
+            displaySchedule(selectedDate);
         });
 
         // Append the day element to the container
@@ -74,15 +76,39 @@ function renderCalendar(date) {
 }
 
 // Function to display the schedule for a selected day
-function displaySchedule(selectedDay) {
+function displaySchedule(selectedDate) {
+    // Remove any existing schedule containers
+    const existingScheduleContainers = document.querySelectorAll(".schedule-container");
+    existingScheduleContainers.forEach(container => {
+        container.remove();
+    });
+
     // Create a container for the schedule
     const scheduleContainer = document.createElement("div");
     scheduleContainer.className = "schedule-container";
 
-    // Define your schedule data here or fetch it from an external source
+    // Define your schedule data here or fetch it from an external source based on the selectedDate
 
     // ... (your schedule data and display logic here)
 
-    // Append the schedule container to the document body or another container element
-    document.body.appendChild(scheduleContainer);
+    // Append the schedule container to the left side of the calendar container
+    const calendarContainer = document.querySelector(".calendar-container");
+    calendarContainer.insertBefore(scheduleContainer, calendarContainer.firstChild);
+
+    // Show the schedule container
+    scheduleContainer.style.display = "block";
 }
+
+daysContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("day")) {
+        // Get the full date in YYYY-MM-DD format
+        const selectedDate = currentDate.format("YYYY-MM-") + event.target.textContent;
+        displaySchedule(selectedDate);
+    }
+});
+
+
+
+
+
+
