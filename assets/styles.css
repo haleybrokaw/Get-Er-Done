@@ -93,3 +93,20 @@ button:hover {
     font-size: 24px;
     margin: 20px auto;
 }
+
+.event {
+    margin-bottom: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 11px;
+    left: 24.5vw;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #ff0303; /* Change color on hover if desired */
+}

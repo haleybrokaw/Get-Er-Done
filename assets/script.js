@@ -102,9 +102,76 @@ function displaySchedule(selectedDate) {
     const scheduleContainer = document.createElement("div");
     scheduleContainer.className = "schedule-container";
 
-    // Define your schedule data here or fetch it from an external source based on the selectedDate
+    // Get the formatted date with Day.js
+    const formattedDate = dayjs(selectedDate).format("dddd, MMMM D, YYYY");
 
-    // ... (your schedule data and display logic here)
+    // Display the formatted date at the top of the container
+    const dateHeading = document.createElement("h2");
+    dateHeading.textContent = formattedDate;
+    scheduleContainer.appendChild(dateHeading);
+
+    // Close button (x icon)
+    const closeButton = document.createElement("span");
+    closeButton.className = "close-button";
+    closeButton.innerHTML = "&times;"; // Unicode character for 'x'
+    closeButton.addEventListener("click", () => {
+        scheduleContainer.style.display = "none"; // Hide the schedule container
+    });
+    scheduleContainer.appendChild(closeButton);
+
+    // Create an input form for adding custom events
+    const eventForm = document.createElement("form");
+    eventForm.className = "event-form";
+    eventForm.innerHTML = `
+        <input type="time" id="eventTime" required>
+        <input type="text" id="eventDescription" placeholder="Event description" required>
+        <button type="submit">Add Event</button>
+    `;
+
+    eventForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const eventTime = document.getElementById("eventTime").value;
+        const eventDescription = document.getElementById("eventDescription").value;
+
+        if (eventTime && eventDescription) {
+            const customEvent = `${eventTime}: ${eventDescription}`;
+            addCustomEvent(selectedDate, customEvent);
+            displaySchedule(selectedDate);
+        }
+    });
+
+    scheduleContainer.appendChild(eventForm);
+
+    // Define your schedule data here or fetch it from an external source based on the selectedDate
+    const scheduleData = getScheduleData(selectedDate);
+
+    // Create a list to hold the events
+    const eventList = document.createElement("ul");
+    eventList.className = "event-list";
+
+    // Populate the event list
+    scheduleData.forEach(event => {
+        const eventItem = document.createElement("li");
+        eventItem.className = "event-item";
+
+        // Create a delete button for each event
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+            deleteCustomEvent(selectedDate, event);
+            displaySchedule(selectedDate);
+        });
+
+        eventItem.innerHTML = `${event} `;
+        eventItem.appendChild(deleteButton);
+
+        eventList.appendChild(eventItem);
+    });
+
+    // Append the event list to the schedule container
+    scheduleContainer.appendChild(eventList);
 
     // Append the schedule container to the left side of the calendar container
     const calendarContainer = document.querySelector(".calendar-container");
@@ -112,6 +179,37 @@ function displaySchedule(selectedDate) {
 
     // Show the schedule container
     scheduleContainer.style.display = "block";
+}
+
+function addCustomEvent(selectedDate, customEvent) {
+    // Get existing custom events for the selected date or initialize an empty array
+    let customEvents = JSON.parse(localStorage.getItem(selectedDate)) || [];
+    
+    // Add the new custom event to the array
+    customEvents.push(customEvent);
+
+    // Save the updated array back to local storage for the selected date
+    localStorage.setItem(selectedDate, JSON.stringify(customEvents));
+}
+
+// Function to delete a custom event from local storage
+function deleteCustomEvent(selectedDate, eventToDelete) {
+    // Get existing custom events for the selected date or initialize an empty array
+    let customEvents = JSON.parse(localStorage.getItem(selectedDate)) || [];
+
+    // Remove the event to delete from the array
+    customEvents = customEvents.filter(event => event !== eventToDelete);
+
+    // Save the updated array back to local storage for the selected date
+    localStorage.setItem(selectedDate, JSON.stringify(customEvents));
+}
+
+// Function to fetch or generate schedule data for a selected date
+function getScheduleData(selectedDate) {
+    // You can implement logic here to retrieve or generate the schedule data for the selected date.
+
+    const customEvents = JSON.parse(localStorage.getItem(selectedDate)) || [];
+    return [...customEvents];
 }
 
 daysContainer.addEventListener("click", (event) => {
