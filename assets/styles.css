@@ -93,3 +93,14 @@ button:hover {
     font-size: 24px;
     margin: 20px auto;
 }
+
+@media screen and (max-width: 768px) {
+    .calendar-container {
+        display: flex;
+        height: 100vh;
+        flex-direction: column-reverse;
+    }
+    #currentMonth {
+        text-align: center;
+    }
+  }
