@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
+    <header>
+        <H1 class="header">Work Day Scheduler</H1>
+    </header>
     <div class="calendar-container">
         <div class="calendar">
             <div class="header">
@@ -17,14 +20,19 @@
             <div class="days"></div>
         </div>
          <div class="schedule-container">
-            
-         </div class="quote-container" id="quote-container">
+            <!-- Schedule content goes here -->
+        
         </div>
+    </div>
+    <div>
+        <div id="joke-container" class="quote-container"></div>
+        <button id="loadJoke">Load Joke</button>
+    </div>
 
-        </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>

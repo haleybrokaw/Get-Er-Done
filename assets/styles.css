@@ -121,3 +121,29 @@ button:hover {
         text-align: center;
     }
   }
+
+  /* Styles for the joke container */
+#joke-container {
+    width: 300px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    margin: 20px auto;
+}
+
+/* Styles for the "Load Joke" button */
+#loadJoke {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#loadJoke:hover {
+    background-color: #0056b3;
+}
