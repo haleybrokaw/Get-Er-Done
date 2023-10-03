@@ -63,6 +63,21 @@ function renderCalendar(date) {
             dayElement.classList.add("future-day");
         }
 
+        // Makes next/previous month correctly colored
+        if (currentMonthElement.textContent === 'September 2023') {
+            for (let day = 1; day <= daysInMonth; day++) {
+                dayElement.classList.remove("present-day");
+                dayElement.classList.remove("future-day");
+                dayElement.classList.add("past-day");
+            }
+        } else if (currentMonthElement.textContent === 'November 2023') {
+            for (let day = 1; day <= daysInMonth; day++) {
+                dayElement.classList.remove("present-day");
+                dayElement.classList.remove("past-day");
+                dayElement.classList.add("future-day");
+            }
+        }
+
         // Add click event listener to show the schedule
         dayElement.addEventListener("click", () => {
             // Get the full date in YYYY-MM-DD format
@@ -107,7 +122,7 @@ daysContainer.addEventListener("click", (event) => {
     }
 });
 
-
+console.log
 
 
 
