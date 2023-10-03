@@ -124,6 +124,49 @@ daysContainer.addEventListener("click", (event) => {
 
 console.log
 
+// Joke Box Stuff
+const jokeContainer = document.getElementById("joke-container");
+const loadJokeButton = document.getElementById("loadJoke");
+
+// Add a click event listener to the "Load Joke" button
+loadJokeButton.addEventListener("click", async () => {
+    try {
+        // Fetch Chuck Norris joke from the API
+        const jokeData = await fetchChuckNorrisJoke();
+
+        // Extract the joke from the "value" property in the response
+        const joke = jokeData.value;
+
+        // Display the joke in the joke container
+        jokeContainer.textContent = joke;
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+// Function to fetch a Chuck Norris joke from the API
+async function fetchChuckNorrisJoke() {
+    const url = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random';
+    const headers = {
+        accept: 'application/json',
+        'X-RapidAPI-Key': 'f41bb8e23amshae3f86bba83acd6p1f39b4jsnfa1585872961',
+        'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com'
+    };
+
+    const response = await fetch(url, { headers });
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch joke");
+    }
+
+    return response.json();
+}
+
+// Initial load of the joke
+fetchAndDisplayJoke();
+
+
+
 
 
 
