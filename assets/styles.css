@@ -111,18 +111,16 @@ button:hover {
     color: #ff0303; /* Change color on hover if desired */
 }
 
-@media screen and (max-width: 768px) {
-    .calendar-container {
-        display: flex;
-        height: 100vh;
-        flex-direction: column-reverse;
-    }
-    #currentMonth {
-        text-align: center;
-    }
-  }
 
-  
+
+
+
+
+
+
+
+
+
 /* Styles for the joke container */
 #joke-container {
     width: 300px;
