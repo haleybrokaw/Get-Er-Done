@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Calendar</title>
+    <title>Work Day Scheduler</title>
     <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
     <header>
-        <H1 class="header">Work Day Scheduler</H1>
+        <h1 class="header">Work Day Scheduler</h1>
     </header>
     <div class="calendar-container">
         <div class="calendar">
             <div class="header">
-                <button id="prevMonth">Previous Month</button>
-                <h1 id="currentMonth">Month Year</h1>
-                <button id="nextMonth">Next Month</button>
+                <button id="prevMonth" class="nav-button">Previous Month</button>
+                <h1 id="currentMonth" class="month">Month Year</h1>
+                <button id="nextMonth" class="nav-button">Next Month</button>
             </div>
             <div class="days"></div>
         </div>
-         <div class="schedule-container">
+        <div class="schedule-container">
             <!-- Schedule content goes here -->
-        
         </div>
     </div>
-    <div>
-        <div id="joke-container" class="quote-container"></div>
-        <button id="loadJoke">Load Joke</button>
+    <div class="weather-container">
+        <input type="text" id="cityInput" class="city-input" placeholder="Enter a city name">
+        <button id="searchWeather" class="search-button">Search Weather</button>
     </div>
 
+    <div id="weatherContainer" class="weather-info">
+        <!-- Weather info will go here, or something-->
+        <span class="city-name">City Name</span>
+        <span class="temperature">Temperature</span>
+        <span class="weather-description">Weather Description</span>
+        <span class="humidity">Humidity</span>
+        <!-- Add more weather data as needed -->
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
