@@ -122,28 +122,50 @@ button:hover {
     }
   }
 
-  /* Styles for the joke container */
-#joke-container {
-    width: 300px;
-    height: 150px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
+  /* Weather container styles */
+.weather-container {
+    margin: 20px;
     text-align: center;
-    font-size: 24px;
-    margin: 20px auto;
 }
 
-/* Styles for the "Load Joke" button */
-#loadJoke {
+.city-input {
+    padding: 5px;
+    width: 200px;
+}
+
+.search-button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
-    font-size: 18px;
+    outline: none;
 }
 
-#loadJoke:hover {
+.search-button:hover {
     background-color: #0056b3;
 }
+
+/* Weather info styles */
+.weather-info {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 20px auto;
+}
+
+.city-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Add more styles as needed for weather data display */
+.temperature,
+.weather-description,
+.humidity {
+    margin: 5px 0;
+}
+

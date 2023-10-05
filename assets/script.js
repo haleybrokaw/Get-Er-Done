@@ -222,45 +222,51 @@ daysContainer.addEventListener("click", (event) => {
 
 console.log
 
-// Joke Box Stuff
-const jokeContainer = document.getElementById("joke-container");
-const loadJokeButton = document.getElementById("loadJoke");
+// Weather elements
+const cityInput = document.querySelector("#cityInput");
+const searchWeatherButton = document.querySelector("#searchWeather");
+const weatherContainer = document.querySelector("#weatherContainer");
+const weatherInfo = document.querySelector(".weather-info");
 
-// Add a click event listener to the "Load Joke" button
-loadJokeButton.addEventListener("click", async () => {
-    try {
-        // Fetch Chuck Norris joke from the API
-        const jokeData = await fetchChuckNorrisJoke();
-
-        // Extract the joke from the "value" property in the response
-        const joke = jokeData.value;
-
-        // Display the joke in the joke container
-        jokeContainer.textContent = joke;
-    } catch (error) {
-        console.error(error);
+// Event listener for weather search button
+searchWeatherButton.addEventListener("click", () => {
+    const city = cityInput.value;
+    if (city) {
+        fetchWeatherData(city);
     }
 });
 
-// Function to fetch a Chuck Norris joke from the API
-async function fetchChuckNorrisJoke() {
-    const url = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random';
-    const headers = {
-        accept: 'application/json',
-        'X-RapidAPI-Key': 'f41bb8e23amshae3f86bba83acd6p1f39b4jsnfa1585872961',
-        'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com'
-    };
+// Function to fetch weather data
+function fetchWeatherData(city) {
+    // Replace 'your_api_key' with your actual OpenWeatherMap API key
+    const apiKey = '899443335eed251daaacb2a6fab4d812';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`; // Use 'imperial' for Fahrenheit
 
-    const response = await fetch(url, { headers });
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch joke");
-    }
-
-    return response.json();
+    fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayWeatherData(data);
+        })
+        .catch((error) => {
+            console.error("Error fetching weather data: " + error);
+        });
 }
 
-// Initial load of the joke
-fetchAndDisplayJoke();
+// Function to display weather data
+function displayWeatherData(data) {
+    const cityName = data.city.name;
+    const temperatureFahrenheit = data.list[0].main.temp; // Temperature is already in Fahrenheit
+    const description = data.list[0].weather[0].description;
+    const humidity = data.list[0].main.humidity;
 
+    const weatherHtml = `
+        <div class="weather-info">
+            <div class="city-name">${cityName}</div>
+            <div class="temperature">Temperature: ${temperatureFahrenheit}°F</div> <!-- Display in Fahrenheit -->
+            <div class="weather-description">Description: ${description}</div>
+            <div class="humidity">Humidity: ${humidity}%</div>
+        </div>
+    `;
 
+    weatherContainer.innerHTML = weatherHtml;
+}
