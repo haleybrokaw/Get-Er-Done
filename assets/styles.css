@@ -11,7 +11,7 @@ body {
 /* Style for the calendar (right side, 3/4 width) */
 .calendar {
     flex: 3;
-    background-color: #fff;
+    background-color: #bce5ec;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 5px #ccc;
     padding: 10px;
@@ -20,8 +20,8 @@ body {
 /* Style for the schedule container (left side, 1/4 width) */
 .schedule-container {
     flex: 1;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #f0ecd9;
+    border: 1px solid #c4b8aa;
     padding: 10px;
     display: none; /* Initially hide the schedule container */
 }
@@ -34,7 +34,7 @@ body {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #009eb3;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -42,7 +42,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #10776e;
 }
 
 .days {
@@ -65,18 +65,18 @@ button:hover {
 
 /* Highlight present day */
 .present-day {
-    background-color: #ffcccc;
-    border: 1px solid #ff0000;
+    background-color: #eeecde;
+    border: 1px solid #858272;
 }
 
 .past-day {
-    background-color: #A2A2A2;
+    background-color: #d3d1d1;
     border: 1px solid #000000;
 }
 
 .future-day {
-    background-color: #56E9A0;
-    border: 1px solid #00753A;
+    background-color: #b6e4cd;
+    border: 1px solid #355746;
 }
 
 
