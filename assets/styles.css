@@ -100,7 +100,7 @@ button:hover {
 
 .close-button {
     position: absolute;
-    top: 11px;
+    top: 8.1vh;
     left: 24.5vw;
     font-size: 20px;
     cursor: pointer;
@@ -120,8 +120,38 @@ button:hover {
     #currentMonth {
         text-align: center;
     }
+    .close-button {
+        position: absolute;
+        top: 81.5vh;
+        left: 96vw;
+        font-size: 20px;
+        cursor: pointer;
+        color: #888;
+    }
+    
   }
 
+@media screen and (max-width: 442px) {
+.close-button {
+    position: absolute;
+    top: 82vh;
+    left: 92vw;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+}
+
+@media screen and (max-width: 327px) {
+    .close-button {
+        position: absolute;
+        top: 86vh;
+        left: 92vw;
+        font-size: 20px;
+        cursor: pointer;
+        color: #888;
+}
+}
   /* Weather container styles */
 .weather-container {
     margin: 20px;
