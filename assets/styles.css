@@ -2,8 +2,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Style for the calendar container */
-/* Style for the calendar container */
+
 .calendar-container {
     display: flex;
     height: 100vh;
@@ -24,7 +23,6 @@ body {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
-    /* Add more styles as desired */
     display: none; /* Initially hide the schedule container */
 }
 
@@ -67,22 +65,22 @@ button:hover {
 
 /* Highlight present day */
 .present-day {
-    background-color: #ffcccc; /* Change to your preferred highlight color */
-    border: 1px solid #ff0000; /* Add a border for emphasis */
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
 }
 
 .past-day {
-    background-color: #A2A2A2; /* Change to your preferred highlight color */
-    border: 1px solid #000000; /* Add a border for emphasis */
+    background-color: #A2A2A2;
+    border: 1px solid #000000;
 }
 
 .future-day {
-    background-color: #56E9A0; /* Change to your preferred highlight color */
-    border: 1px solid #00753A; /* Add a border for emphasis */
+    background-color: #56E9A0;
+    border: 1px solid #00753A;
 }
 
 
-/* Quote box */
+/*weather box*/
 .word-box {
     width: 300px;
     height: 150px;
@@ -108,7 +106,7 @@ button:hover {
 }
 
 .close-button:hover {
-    color: #ff0303; /* Change color on hover if desired */
+    color: #ff0303; 
 }
 
 @media screen and (max-width: 768px) {
