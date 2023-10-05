@@ -64,13 +64,13 @@ function renderCalendar(date) {
         }
 
         // Makes next/previous month correctly colored
-        if (currentMonthElement.textContent === 'September 2023') {
+        if (dayjs().month() > currentDate.month()) {
             for (let day = 1; day <= daysInMonth; day++) {
                 dayElement.classList.remove("present-day");
                 dayElement.classList.remove("future-day");
                 dayElement.classList.add("past-day");
             }
-        } else if (currentMonthElement.textContent === 'November 2023') {
+        } else if (dayjs().month() < currentDate.month()) {
             for (let day = 1; day <= daysInMonth; day++) {
                 dayElement.classList.remove("present-day");
                 dayElement.classList.remove("past-day");
