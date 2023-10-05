@@ -78,21 +78,21 @@ function renderCalendar(date) {
             }
         }
 
-        // Add click event listener to show the schedule
+        // Add event listener to show the schedule
         dayElement.addEventListener("click", () => {
             // Get the full date in YYYY-MM-DD format
             const selectedDate = currentDate.format("YYYY-MM-") + day;
             displaySchedule(selectedDate);
         });
 
-        // Append the day element to the container
         daysContainer.appendChild(dayElement);
     }
 }
 
 // Function to display the schedule for a selected day
 function displaySchedule(selectedDate) {
-    // Remove any existing schedule containers
+    
+    // close any existing schedule containers
     const existingScheduleContainers = document.querySelectorAll(".schedule-container");
     existingScheduleContainers.forEach(container => {
         container.remove();
@@ -102,24 +102,24 @@ function displaySchedule(selectedDate) {
     const scheduleContainer = document.createElement("div");
     scheduleContainer.className = "schedule-container";
 
-    // Get the formatted date with Day.js
+    // Get the date with Day.js
     const formattedDate = dayjs(selectedDate).format("dddd, MMMM D, YYYY");
 
-    // Display the formatted date at the top of the container
+    // Display the date at the top of the container
     const dateHeading = document.createElement("h2");
     dateHeading.textContent = formattedDate;
     scheduleContainer.appendChild(dateHeading);
 
-    // Close button (x icon)
+    // Close button for schedule container (x icon)
     const closeButton = document.createElement("span");
     closeButton.className = "close-button";
-    closeButton.innerHTML = "&times;"; // Unicode character for 'x'
+    closeButton.innerHTML = "&times;";
     closeButton.addEventListener("click", () => {
-        scheduleContainer.style.display = "none"; // Hide the schedule container
+        scheduleContainer.style.display = "none";
     });
     scheduleContainer.appendChild(closeButton);
 
-    // Create an input form for adding custom events
+    // Create an input form for adding events
     const eventForm = document.createElement("form");
     eventForm.className = "event-form";
     eventForm.innerHTML = `
@@ -143,7 +143,6 @@ function displaySchedule(selectedDate) {
 
     scheduleContainer.appendChild(eventForm);
 
-    // Define your schedule data here or fetch it from an external source based on the selectedDate
     const scheduleData = getScheduleData(selectedDate);
 
     // Create a list to hold the events
@@ -192,35 +191,31 @@ function addCustomEvent(selectedDate, customEvent) {
     localStorage.setItem(selectedDate, JSON.stringify(customEvents));
 }
 
-// Function to delete a custom event from local storage
+// Function to delete an event from local storage
 function deleteCustomEvent(selectedDate, eventToDelete) {
-    // Get existing custom events for the selected date or initialize an empty array
+    // Get saved custom events for the selected date or initialize an empty array
     let customEvents = JSON.parse(localStorage.getItem(selectedDate)) || [];
 
     // Remove the event to delete from the array
     customEvents = customEvents.filter(event => event !== eventToDelete);
 
-    // Save the updated array back to local storage for the selected date
+    // Save the updated array back to local storagee
     localStorage.setItem(selectedDate, JSON.stringify(customEvents));
 }
 
-// Function to fetch or generate schedule data for a selected date
+// Function to fetch data for a selected date
 function getScheduleData(selectedDate) {
-    // You can implement logic here to retrieve or generate the schedule data for the selected date.
-
+    //.. 
     const customEvents = JSON.parse(localStorage.getItem(selectedDate)) || [];
     return [...customEvents];
 }
 
 daysContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("day")) {
-        // Get the full date in YYYY-MM-DD format
         const selectedDate = currentDate.format("YYYY-MM-") + event.target.textContent;
         displaySchedule(selectedDate);
     }
 });
-
-console.log
 
 // Weather elements
 const cityInput = document.querySelector("#cityInput");
@@ -238,7 +233,6 @@ searchWeatherButton.addEventListener("click", () => {
 
 // Function to fetch weather data
 function fetchWeatherData(city) {
-    // Replace 'your_api_key' with your actual OpenWeatherMap API key
     const apiKey = '899443335eed251daaacb2a6fab4d812';
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`; // Use 'imperial' for Fahrenheit
 
@@ -255,7 +249,7 @@ function fetchWeatherData(city) {
 // Function to display weather data
 function displayWeatherData(data) {
     const cityName = data.city.name;
-    const temperatureFahrenheit = data.list[0].main.temp; // Temperature is already in Fahrenheit
+    const temperatureFahrenheit = data.list[0].main.temp;
     const description = data.list[0].weather[0].description;
     const humidity = data.list[0].main.humidity;
 
