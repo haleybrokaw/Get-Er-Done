@@ -155,7 +155,7 @@ function displaySchedule(selectedDate) {
 
         // Create a delete button for each event
         const deleteButton = document.createElement("button");
-        deleteButton.className = "delete";
+        deleteButton.className = "delete-button";
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
             deleteCustomEvent(selectedDate, event);

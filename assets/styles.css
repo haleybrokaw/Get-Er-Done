@@ -57,6 +57,7 @@ button:hover {
     height: 10vh;
     text-align: center;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .day:hover {
@@ -77,6 +78,11 @@ button:hover {
 .future-day {
     background-color: #b6e4cd;
     border: 1px solid #355746;
+}
+
+.holiday {
+    color: red;
+    font-weight: bold;
 }
 
 
