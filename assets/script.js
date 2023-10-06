@@ -105,19 +105,18 @@ function displaySchedule(selectedDate) {
     // Get the date with Day.js
     const formattedDate = dayjs(selectedDate).format("dddd, MMMM D, YYYY");
 
+    // Close button for schedule container (x icon)
+    const closeButton = document.createElement("button");
+    closeButton.className = "delete is-small";
+    closeButton.addEventListener("click", () => {
+        scheduleContainer.style.display = "none";
+    });
+    scheduleContainer.appendChild(closeButton);    
+    
     // Display the date at the top of the container
     const dateHeading = document.createElement("h2");
     dateHeading.textContent = formattedDate;
     scheduleContainer.appendChild(dateHeading);
-
-    // Close button for schedule container (x icon)
-    const closeButton = document.createElement("span");
-    closeButton.className = "close-button";
-    closeButton.innerHTML = "&times;";
-    closeButton.addEventListener("click", () => {
-        scheduleContainer.style.display = "none";
-    });
-    scheduleContainer.appendChild(closeButton);
 
     // Create an input form for adding events
     const eventForm = document.createElement("form");
