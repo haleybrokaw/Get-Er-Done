@@ -5,7 +5,7 @@ body {
 
 .calendar-container {
     display: flex;
-    height: 80vh;
+    height: 62vh;
 }
 
 /* Style for the calendar (right side, 3/4 width) */
@@ -112,7 +112,7 @@ button:hover {
 @media screen and (max-width: 768px) {
     .calendar-container {
         display: flex;
-        height: 100vh;
+        height: 63vh;
         flex-direction: column-reverse;
     }
     #currentMonth {
